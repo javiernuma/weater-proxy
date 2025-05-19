@@ -1,4 +1,3 @@
-# README.md
 # Weather Proxy API - Hexagonal Architecture
 
 Una API REST que actúa como proxy para servicios externos del clima (weatherstack, OpenWeather, etc.), aplicando lógica personalizada y registrando cada solicitud.
