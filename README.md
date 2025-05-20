@@ -10,7 +10,7 @@ Este proyecto es una solución para la prueba técnica de Blossom, desarrollada 
 
 ## 📄 Documentación
 
-- La solución técnica y las respuestas a las preguntas de la prueba se encuentran en el archivo [`README-answers.md`](./documentacion/answers.md).
+- La solución técnica y las respuestas a las preguntas de la prueba se encuentran en el archivo [`answers.md`](./documentacion/answers.md).
 
 ## Arquitectura
 Una API REST que actúa como proxy para servicios externos del clima (weatherstack, OpenWeather, etc.), aplicando lógica personalizada y registrando cada solicitud.
