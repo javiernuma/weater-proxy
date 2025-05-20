@@ -31,7 +31,7 @@
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <springdoc.version>2.5.0</springdoc.version>
-    <spring.boot.maven.vesion>3.4.5</spring.boot.maven.vesion>
+    <spring.boot.vesion>3.4.5</spring.boot.vesion>
   </properties>
 
   <dependencyManagement>
@@ -100,57 +100,38 @@
     </dependency>
   </dependencies>
 
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId>
-        <version>${spring.boot.maven.vesion}</version>
-        <configuration>
-          <skip>true</skip> <!-- Skip en la mayoría de módulos -->
-          <mainClass>com.javiernuma.bootstrap.WeatherProxyApplication</mainClass>
-          <excludes>
-            <exclude>
-              <groupId>org.projectlombok</groupId>
-              <artifactId>lombok</artifactId>
-            </exclude>
-          </excludes>
-        </configuration>
-        <executions>
-          <execution>
-            <id>repackage</id>
-            <goals>
-              <goal>repackage</goal>
-            </goals>
-            <configuration>
-              <skip>true</skip>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <!-- Configuración para ejecutar desde la raíz -->
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <version>3.1.0</version>
-        <configuration>
-          <mainClass>com.javiernuma.weatherproxy.bootstrap.WeatherProxyApplication</mainClass>
-        </configuration>
-      </plugin>
-    </plugins>
 
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.11.0</version>
-          <configuration>
-            <source>${java.version}</source>
-            <target>${java.version}</target>
-          </configuration>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-  </build>
+  <profiles>
+    <profile>
+      <id>run-bootstrap</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>3.1.0</version>
+            <executions>
+              <execution>
+                <id>default-cli</id>
+                <goals>
+                  <goal>exec</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <executable>mvn</executable>
+              <arguments>
+                <argument>-f</argument>
+                <argument>${project.basedir}/bootstrap/pom.xml</argument>
+                <argument>spring-boot:run</argument>
+              </arguments>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>
