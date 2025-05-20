@@ -1,9 +1,19 @@
 # Weather Proxy API - Hexagonal Architecture
 
-Una API REST que actúa como proxy para servicios externos del clima (weatherstack, OpenWeather, etc.), aplicando lógica personalizada y registrando cada solicitud.
+Este proyecto es una solución para la prueba técnica de Blossom, desarrollada utilizando Java y Spring Boot, y estructurada bajo los principios de arquitectura hexagonal.
+
+## 🧩 Estructura del proyecto
+
+- **Arquitectura Hexagonal**: Separación clara entre capas de dominio, aplicación e infraestructura.
+- **Buenas prácticas de clean code**: Código legible, mantenible y testeado.
+- **Manejo de errores**: Implementación de excepciones personalizadas y controladores globales para gestionar errores HTTP de APIs externas.
+
+## 📄 Documentación
+
+- La solución técnica y las respuestas a las preguntas de la prueba se encuentran en el archivo [`README-answers.md`](./documentacion/answers.md).
 
 ## Arquitectura
-
+na API REST que actúa como proxy para servicios externos del clima (weatherstack, OpenWeather, etc.), aplicando lógica personalizada y registrando cada solicitud.
 Este proyecto implementa una arquitectura hexagonal (Ports and Adapters), siguiendo estos principios:
 
 ```
@@ -57,7 +67,7 @@ weather-proxy-hexa/
 - Java 17+
 - Maven 3.8+
 
-## Cómo ejecutar
+## 🚀 Cómo ejecutar
 
 ```bash
 # Clonar repositorio
