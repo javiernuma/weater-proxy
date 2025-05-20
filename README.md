@@ -68,7 +68,7 @@ cd weather-proxy-hexa
 mvn clean install
 
 # Ejecutar
-mvn spring-boot:run
+mvn -pl bootstrap spring-boot:run
 ```
 
 La aplicación estará disponible en: http://localhost:8080
